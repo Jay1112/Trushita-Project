@@ -19,7 +19,7 @@ export function HomeSwiper() {
   const [count, setCount] = React.useState(0);
   const plugin = React.useRef(
     Autoplay({
-      delay: 3000, // 3 seconds
+      delay: 3000,
       stopOnInteraction: true,
     }),
   );
@@ -42,6 +42,9 @@ export function HomeSwiper() {
       setApi={setApi}
       className="w-full p-4 md:p-0"
       plugins={[plugin.current]}
+      opts={{
+        loop: true
+      }}
     >
       <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (

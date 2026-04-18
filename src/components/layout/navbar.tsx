@@ -6,12 +6,19 @@ import { ThemeToggle } from "../theme-toggle";
 import { navBarLinkList } from "@/config/navbarLinks";
 import { NavbarLink } from "@/types/navbarLinks.types";
 import { Sidebar } from "@/components/layout/sidebar";
+import Image from "next/image";
 
 function Navbar() {
   return (
     <nav className="bg-background border-b-1 p-4 shadow-xs sticky top-0 z-100">
       <div className="container flex items-center justify-between">
-        <Link href="/" className="hover:opacity-80 transition-opacity">
+        <Link href="/" className="hover:opacity-80 transition-opacity flex items-center justify-center gap-x-2">
+          <Image
+            src="/logo.webp"
+            width={48}
+            height={48}
+            alt="Trushita Logo"
+          />
           <h1 className="text-2xl font-bold tracking-tight">Trushita</h1>
         </Link>
         <div className="text-lg flex items-center justify-center md:gap-x-2">

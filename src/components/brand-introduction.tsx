@@ -1,10 +1,10 @@
 export function BrandIntro() {
   return (
-    <section className="w-full py-8 md:py-6 bg-background text-foreground">
+    <section className="w-full py-8 md:py-16 bg-background text-foreground">
       <div className="container mx-auto px-6 md:px-0 max-w-3xl text-justify">
-        <h1 className="text-3xl text-center md:text-left md:text-4xl font-bold tracking-tight mb-6">
+        <h2 className="text-3xl text-center md:text-left md:text-4xl font-bold tracking-tight mb-6">
           Trushita Oil
-        </h1>
+        </h2>
 
         <p className="text-base md:text-lg leading-relaxed text-muted-foreground mb-4">
           Trushita Oil is a premium-quality edible oil crafted to meet the

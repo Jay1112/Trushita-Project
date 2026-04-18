@@ -9,7 +9,7 @@ export default function Home() {
       <div className="container flex items-center justify-center py-0 md:py-6">
         <HomeSwiper />
       </div>
-      <div className="container ">
+      <div className="container">
         <BrandIntro/>
         <ProductCatelogue/>
       </div>
