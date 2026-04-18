@@ -38,17 +38,21 @@ export function Sidebar() {
           </DrawerTitle>
         </DrawerHeader>
         <div className="flex flex-col gap-2 px-4 py-6">
-          {navBarLinkList.map((item: NavbarLink) => (
-            <Link
-              key={item.path}
-              href={item.path}
-              className={`${buttonVariants({variant: 'link'})} group flex items-center px-4 py-3 rounded-lg text-base font-medium text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground`}
-            >
-              <span className="group-hover:translate-x-1 inline-block w-full text-lg text-left transition-transform duration-200">
-                {item.name}
-              </span>
-            </Link>
-          ))}
+          {navBarLinkList.map((item: NavbarLink) => {
+            const Icon = item.icon;
+            return (
+              <Link
+                key={item.path}
+                href={item.path}
+                className={`${buttonVariants({variant: 'link'})} group flex items-center justify-start gap-4 px-4 py-3 rounded-lg text-base font-medium text-muted-foreground transition-all duration-200 hover:bg-muted hover:text-foreground`}
+              >
+                {Icon && <Icon className="w-5 h-5 shrink-0" />}
+                <span className="group-hover:translate-x-1 inline-block w-full text-lg text-left transition-transform duration-200">
+                  {item.name}
+                </span>
+              </Link>
+            );
+          })}
         </div>
       </DrawerContent>
     </Drawer>

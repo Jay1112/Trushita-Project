@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Card, CardContent } from "@/components/ui/card"
+import * as React from "react";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -9,35 +9,46 @@ import {
   CarouselNext,
   CarouselPrevious,
   type CarouselApi,
-} from "@/components/ui/carousel"
-import { cn } from "@/lib/utils"
+} from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
+import Autoplay from "embla-carousel-autoplay";
 
 export function HomeSwiper() {
-  const [api, setApi] = React.useState<CarouselApi>()
-  const [current, setCurrent] = React.useState(0)
-  const [count, setCount] = React.useState(0)
+  const [api, setApi] = React.useState<CarouselApi>();
+  const [current, setCurrent] = React.useState(0);
+  const [count, setCount] = React.useState(0);
+  const plugin = React.useRef(
+    Autoplay({
+      delay: 3000, // 3 seconds
+      stopOnInteraction: true,
+    }),
+  );
 
   React.useEffect(() => {
     if (!api) {
-      return
+      return;
     }
 
-    setCount(api.scrollSnapList().length)
-    setCurrent(api.selectedScrollSnap() + 1)
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
 
     api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1)
-    })
-  }, [api])
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
 
   return (
-    <Carousel setApi={setApi} className="w-full p-4 md:p-0">
+    <Carousel
+      setApi={setApi}
+      className="w-full p-4 md:p-0"
+      plugins={[plugin.current]}
+    >
       <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
               <Card>
-                <CardContent className="flex h-100 items-center justify-center p-6">
+                <CardContent className="flex aspect-square md:aspect-[5/2] items-center justify-center">
                   <p>Trushita</p>
                 </CardContent>
               </Card>
@@ -62,7 +73,7 @@ export function HomeSwiper() {
               key={index}
               className={cn(
                 "h-2 w-2 rounded-full transition-all",
-                current === index + 1 ? "bg-primary w-4" : "bg-primary/50"
+                current === index + 1 ? "bg-primary w-4" : "bg-primary/50",
               )}
               onClick={() => api?.scrollTo(index)}
               aria-label={`Go to slide ${index + 1}`}
@@ -73,5 +84,5 @@ export function HomeSwiper() {
         <CarouselNext className="static translate-y-0 flex md:hidden" />
       </div>
     </Carousel>
-  )
+  );
 }
