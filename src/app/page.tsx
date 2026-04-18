@@ -6,7 +6,7 @@ import { Separator } from "@/components/ui/separator";
 export default function Home() {
   return (
     <div className="">
-      <div className="container flex items-center justify-center py-4">
+      <div className="container flex items-center justify-center py-0 md:py-6">
         <HomeSwiper />
       </div>
       <div className="container ">
