@@ -125,7 +125,7 @@
 }
 
 .container {
-  @apply w-full md:max-w-7xl mx-auto
+  @apply w-full px-2 md:max-w-7xl mx-auto
 }
 
 .debug {

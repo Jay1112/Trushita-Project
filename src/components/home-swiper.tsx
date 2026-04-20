@@ -40,7 +40,7 @@ export function HomeSwiper() {
   return (
     <Carousel
       setApi={setApi}
-      className="w-full p-4 md:p-0"
+      className="w-full py-4 md:p-0"
       plugins={[plugin.current]}
       opts={{
         loop: true
